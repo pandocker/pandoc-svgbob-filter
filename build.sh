@@ -1,4 +1,4 @@
 #!/bin/bash
 
-#make svgbob
+make svgbob
 python3 setup.py sdist
