@@ -1,5 +1,5 @@
 
-BUILD = .svgbob
+BUILD = svgbob
 
 all: svgbob
 
