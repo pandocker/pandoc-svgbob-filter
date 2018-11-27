@@ -158,9 +158,8 @@ setup(
     #
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
-    package_data={  # Optional
-        '.svgbob': ['bin/svgbob'],
-    },
+    # package_data={  # Optional
+    # },
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
@@ -178,7 +177,7 @@ setup(
     # executes the function `main` from this package when invoked:
     entry_points={  # Optional
         'console_scripts': [
-            'pandoc-svgbob-inline=pandoc_svgbob_filter:main',
+            'pandoc-svgbob-filter=pandoc_svgbob_filter:main',
         ],
     },
 
