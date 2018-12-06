@@ -59,10 +59,10 @@ svgbob-font-family: "Source Code Pro"
 
 | Option         | yaml metadata         | Description                                                               | default value |
 |:---------------|:----------------------|:--------------------------------------------------------------------------|:-------------:|
-| `font-family`  | `svgbob-font-family`  | Text will be rendered with this font                                      |    "Arial"    |
-| `font-size`    | `svgbob-size`         | text will be rendered with this font size                                 |      14       |
-| `scale`        | `svgbob-scale`        | scale the entire svg (dimensions, font size, stroke width) by this factor |       1       |
-| `stroke-width` | `svgbob-stroke-width` | stroke width for all lines                                                |       2       |
+| `font-family`  | `svgbob.font-family`  | Text will be rendered with this font                                      |    "Arial"    |
+| `font-size`    | `svgbob.size`         | text will be rendered with this font size                                 |      14       |
+| `scale`        | `svgbob.scale`        | scale the entire svg (dimensions, font size, stroke width) by this factor |       1       |
+| `stroke-width` | `svgbob.stroke-width` | stroke width for all lines                                                |       2       |
 
 # Usage example
 

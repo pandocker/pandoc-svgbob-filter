@@ -9,6 +9,20 @@ from shutil import which
 
 
 class SvgbobInline(object):
+    """
+    Converts alone Link in svgbob class to Image
+    requires `svgbob` and `rsvg-convert` in PATH
+    option can be provided as attributes or can set default values in yaml metadata block
+
+    option          | metadata              | default
+    ----------------|-----------------------|----------
+    font-family     | svgbob-font-family    | "Arial"
+    font-size       | svgbob-font-size      | 14
+    scale           | svgbob-scale          | 1
+    stroke_width    | svgbob-stroke-width   | 2
+
+    """
+
     def __init__(self):
         self.dir_to = "svg"
         assert which("svgbob"), "svgbob is not in path"
@@ -22,10 +36,26 @@ class SvgbobInline(object):
                     options = subelem.attributes
                     caption = subelem.content
 
-                    font_family = options.get("font-family", None)
-                    font_size = options.get("font-size", None)
-                    scale = options.get("scale", None)
-                    stroke_width = options.get("stroke-width", None)
+                    meta_font_family = doc.get_metadata("svgbob.font-family", None)
+                    if meta_font_family is None:
+                        doc.metadata["svgbob"]["font-family"] = "Arial"
+
+                    meta_font_size = doc.get_metadata("svgbob.font-size", None)
+                    if meta_font_size is None:
+                        doc.metadata["svgbob"]["font-size"] = 14
+
+                    meta_scale = doc.get_metadata("svgbob.scale", None)
+                    if meta_font_size is None:
+                        doc.metadata["svgbob"]["scale"] = 1
+
+                    meta_stroke_width = doc.get_metadata("svgbob.stroke-width", None)
+                    if meta_font_size is None:
+                        doc.metadata["svgbob"]["stroke-width"] = 2
+
+                    font_family = options.get("font-family", meta_font_family)
+                    font_size = options.get("font-size", meta_font_size)
+                    scale = options.get("scale", meta_scale)
+                    stroke_width = options.get("stroke-width", meta_stroke_width)
                     svgbob_option = " ".join([
                         '--font-family "{}"'.format(font_family) if font_family is not None else "",
                         "--font-size {}".format(font_size) if font_size is not None else "",
