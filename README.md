@@ -42,27 +42,33 @@ SUBCOMMANDS:
     build    Batch convert files to svg.
     help     Prints this message or the help of the given subcommand(s)
 ```
-# Sample Markdown
 
-```markdown
----
-# YAML frontmatter
-svgbob-font-family: "Source Code Pro"
-...
+Filter options inherits options for svgbob itself.
+They are applied as attributes or preset by setting metadata
 
-[Example](bob.bob){.svgbob font-size=14 stroke-width=2 scale=3}
-```
-
-[Example](bob.bob){.svgbob}
-
-# Options
-
-| Option         | yaml metadata         | Description                                                               | default value |
+| Filter option  | yaml metadata         | Description                                                               | default value |
 |:---------------|:----------------------|:--------------------------------------------------------------------------|:-------------:|
 | `font-family`  | `svgbob.font-family`  | Text will be rendered with this font                                      |    "Arial"    |
 | `font-size`    | `svgbob.size`         | text will be rendered with this font size                                 |      14       |
 | `scale`        | `svgbob.scale`        | scale the entire svg (dimensions, font size, stroke width) by this factor |       1       |
 | `stroke-width` | `svgbob.stroke-width` | stroke width for all lines                                                |       2       |
+
+# Sample Markdown
+
+```markdown
+---
+# YAML frontmatter
+svgbob:
+  font-family: "Source Code Pro"
+#  font-size: 12
+#  scale: 2
+#  stroke-width:3
+...
+
+[Example](bob.bob){.svgbob font-size=14 stroke-width=2 scale=3}
+```
+
+[Example](bob.bob){.svgbob font-size=14 stroke-width=2 scale=3}
 
 # Usage example
 
