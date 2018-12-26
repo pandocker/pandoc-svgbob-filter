@@ -63,6 +63,7 @@ class SvgbobInline(object):
             else:
                 format = "png"
 
+            fn = os.path.abspath(fn)
             linkto = os.path.abspath(".".join([self.basename, format])).replace("\\", "/")
 
             command = "svgbob {} {} | rsvg-convert -f {} -o {}".format(fn, svgbob_option, format, linkto)
