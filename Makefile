@@ -19,4 +19,5 @@ pdf:
 	cd tests && make pdf
 
 clean:
-	rm -rf $(BUILD)/bin/svgbob
+	cd tests && make clean
+#	rm -rf $(BUILD)/bin/svgbob
