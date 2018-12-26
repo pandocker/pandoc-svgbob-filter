@@ -67,10 +67,10 @@ class SvgbobInline(object):
             linkto = os.path.abspath(".".join([self.basename, format])).replace("\\", "/")
 
             command = "svgbob {} {} | rsvg-convert -f {} -o {}".format(fn, svgbob_option, format, linkto)
-            # pf.debug(command)
+            pf.debug(command)
             sp.Popen(command, shell=True, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
 
-            pf.debug("[inline] generate svgbob from {}".format(fn))
+            pf.debug("[inline] generate svgbob from {} to {}".format(fn, linkto))
             elem.classes.remove("svgbob")
             elem = pf.Image(*caption, classes=elem.classes, url=linkto,
                             identifier=elem.identifier, title="fig:", attributes=elem.attributes)
