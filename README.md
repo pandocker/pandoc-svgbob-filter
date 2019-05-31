@@ -62,7 +62,7 @@ svgbob:
   font-family: "Source Code Pro"
 #  font-size: 12
 #  scale: 2
-#  stroke-width:3
+#  stroke-width: 3
 ...
 
 [Example](bob.bob){.svgbob font-size=14 stroke-width=2 scale=3}
@@ -74,4 +74,13 @@ svgbob:
 
 ```bash
 pandoc README.md -F pandoc-svgbob-filter -o README.html
+```
+
+# Build `svgbob` binary (when updated)
+
+```shell
+$ git clone https://github.com/pandocker/pandoc-svgbob-filter.git
+$ cd pandoc-svgbob-filter
+$ make svgbob
+# builds binary under "svgbob" directory
 ```
