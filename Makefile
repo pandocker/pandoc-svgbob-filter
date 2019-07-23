@@ -8,7 +8,7 @@ init:
 
 svgbob: init
 	echo "svgbob"
-	docker run --rm -v $(PWD):/tmp -w /tmp rust cargo install svgbob_cli --root=$(BUILD)
+	docker run --rm -v $(PWD):/tmp -w /tmp rust cargo install svgbob_cli --root=$(BUILD) --target=x86_64-unknown-linux-musl
 #	cargo install svgbob_cli --root=$(BUILD)
 
 initdir:
