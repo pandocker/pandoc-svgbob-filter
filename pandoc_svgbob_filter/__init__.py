@@ -56,17 +56,18 @@ class SvgbobInline(object):
             counter = hashlib.sha1(data.encode("utf-8")).hexdigest()[:8]
             self.basename = "/".join([self.dir_to, str(counter)])
 
-            if doc.format in ["latex"]:
-                format = "pdf"
-            elif doc.format in ["html", "html5"]:
-                format = "svg"
-            else:
-                format = "png"
+            _format = "svg"
+            # if doc.format in ["latex"]:
+            #     format = "pdf"
+            # elif doc.format in ["html", "html5"]:
+            #     format = "svg"
+            # else:
+            #     format = "png"
 
             fn = os.path.abspath(fn)
-            linkto = os.path.abspath(".".join([self.basename, format])).replace("\\", "/")
+            linkto = os.path.abspath(".".join([self.basename, _format])).replace("\\", "/")
 
-            command = "svgbob {} {} | rsvg-convert -f {} -o {}".format(fn, svgbob_option, format, linkto)
+            command = "svgbob {} {} | rsvg-convert -f {} -o {}".format(fn, svgbob_option, _format, linkto)
             pf.debug(command)
             sp.Popen(command, shell=True, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
 
