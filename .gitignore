@@ -105,3 +105,4 @@ venv.bak/
 
 .svgbob/
 svg/
+svgbob/.crates.toml
