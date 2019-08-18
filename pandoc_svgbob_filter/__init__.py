@@ -11,7 +11,7 @@ from shutil import which
 class SvgbobInline(object):
     """
     Converts alone Link in svgbob class to Image
-    requires `svgbob` and `rsvg-convert` in PATH
+    requires `svgbob` in PATH
     option can be provided as attributes or can set default values in yaml metadata block
 
     option          | metadata              | default
@@ -26,7 +26,6 @@ class SvgbobInline(object):
     def __init__(self):
         self.dir_to = "svg"
         assert which("svgbob"), "svgbob is not in path"
-        assert which("rsvg-convert"), "rsvg-convert is not in path"
 
     def action(self, elem, doc):
         if isinstance(elem, pf.Link) and "svgbob" in elem.classes:
@@ -67,7 +66,7 @@ class SvgbobInline(object):
             fn = os.path.abspath(fn)
             linkto = os.path.abspath(".".join([self.basename, _format])).replace("\\", "/")
 
-            command = "svgbob {} {} | rsvg-convert -f {} -o {}".format(fn, svgbob_option, _format, linkto)
+            command = "svgbob {} {} -o {}".format(fn, svgbob_option, linkto)
             pf.debug(command)
             sp.Popen(command, shell=True, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
 
