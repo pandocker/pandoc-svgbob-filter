@@ -16,7 +16,7 @@ install by pip-git:
 Reference svgbob help (`svgbob --help`)
 
 ```
-svgbob 0.3.2
+svgbob 0.4.2
 SvgBobRus is an ascii to svg converter
 
 USAGE:
