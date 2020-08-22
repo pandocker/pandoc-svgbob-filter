@@ -105,4 +105,5 @@ venv.bak/
 
 .svgbob/
 svg/
-svgbob/.crates.toml
+svgbob*/.crates.toml
+svgbob*/.crates2.json
