@@ -13,6 +13,16 @@ from os import path
 # and accepts an argument to specify the text encoding
 # Python 3 only projects can skip this import
 from io import open
+import platform
+
+pf = platform.platform()
+svgbob_binary = "svgbob/bin/svgbob"
+if pf.startswith("Linux"):
+    svgbob_binary = "svgbob/bin/svgbob"
+elif pf.startswith("Darwin"):
+    svgbob_binary = "svgbob_osx/bin/svgbob"
+elif pf.startswith("Windows"):
+    svgbob_binary = "svgbob_win/bin/svgbob.exe"
 
 here = path.abspath(path.dirname(__file__))
 
@@ -167,7 +177,7 @@ setup(
     # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
     #
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    data_files=[('bin', ['svgbob/bin/svgbob'])],  # Optional
+    data_files=[('bin', [svgbob_binary])],  # Optional
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
